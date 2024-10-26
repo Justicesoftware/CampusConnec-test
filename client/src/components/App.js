@@ -1,19 +1,25 @@
+// src/App.js
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import StudyGroup from './pages/StudyGroup';
-import Event from './pages/Event';
+import HomePage from './pages/HomePage';
+import ProfilePage from './pages/ProfilePage';
+import StudyGroupsPage from './pages/StudyGroupsPage';
+import TutorMatchPage from './pages/TutorMatchPage';
+import ExplorePage from './pages/ExplorePage';
+import './styles/global.css'; // Import global Notion-style theme
 
 function App() {
   return (
     <Router>
-      <Header />
-      <Switch>
-        <Route path="/study-groups" component={StudyGroup} />
-        <Route path="/events" component={Event} />
-        {/* Add more routes as needed */}
-      </Switch>
-      <Footer />
+      <div className="app-container">
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/profile" component={ProfilePage} />
+          <Route path="/studygroups" component={StudyGroupsPage} />
+          <Route path="/tutormatch" component={TutorMatchPage} />
+          <Route path="/explore" component={ExplorePage} />
+        </Switch>
+      </div>
     </Router>
   );
 }
